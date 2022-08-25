@@ -22,7 +22,6 @@ abstract class BaseModel
             $this->table = strtolower(basename(str_replace('\\', '/', get_class($this))));
         }
 
-
         $this->connect();
     }
 
@@ -37,6 +36,7 @@ abstract class BaseModel
         if ($result) {
             return $result->fetch_all(1);
         }
+
         return $result;
     }
 
@@ -44,7 +44,6 @@ abstract class BaseModel
     {
         $page = $_GET['page'] ?? 1;
         $offset = ($page * 3) - 3;
-
         $order = "";
         if (isset($_GET['order_column']) && isset($_GET['order_direction'])) {
             $order = " order by {$_GET['order_column']} {$_GET['order_direction']}";
@@ -55,6 +54,7 @@ abstract class BaseModel
         if ($result) {
             return $result->fetch_all(1);
         }
+
         return $result;
     }
 
@@ -64,6 +64,7 @@ abstract class BaseModel
         while ($row = $result->fetch()) {
             $rows[] = $row;
         }
+
         return $rows;
     }
 }

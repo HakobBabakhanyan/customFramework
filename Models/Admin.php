@@ -6,7 +6,7 @@ class Admin
 {
     public function check($data)
     {
-        if($data['login'] === 'admin' && md5($data['password']) === '202cb962ac59075b964b07152d234b70') {
+        if ($data['login'] === 'admin' && md5($data['password']) === '202cb962ac59075b964b07152d234b70') {
             return true;
         }
 
@@ -15,6 +15,6 @@ class Admin
 
     public function login()
     {
-        $_SESSION['login']  = true;
+        $_SESSION['login'] = true;
     }
 }

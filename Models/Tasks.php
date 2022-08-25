@@ -5,7 +5,6 @@ namespace App\Models;
 
 class Tasks extends BaseModel
 {
-
     public function insert($data)
     {
         return $this->mysqli->query("INSERT INTO tasks (name,email,text) 
@@ -16,6 +15,7 @@ class Tasks extends BaseModel
     {
         return $this->mysqli->query("UPDATE tasks  SET text = '{$data['text']}', updated_at = now() where id = {$data['id']}");
     }
+
     public function updateStatus($data)
     {
         return $this->mysqli->query("UPDATE tasks  SET status = 1, updated_at = now() where id = {$data['id']}");

@@ -6,7 +6,6 @@ use App\Models\Admin;
 
 class LoginController
 {
-
     public function index()
     {
         view('login.php');

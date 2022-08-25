@@ -8,16 +8,16 @@ class TaskController
 {
     public function index()
     {
-
-        $model  = new Tasks();
-
+        $model = new Tasks();
         $data = $model->paginate();
         header('Content-Type: application/json; charset=utf-8');
+
         echo json_encode($data);
     }
+
     public function create()
     {
-        if(check(['name', 'email', 'text'], $_POST)) {
+        if (check(['name', 'email', 'text'], $_POST)) {
             $taskModel = new Tasks();
             $taskModel->insert($_POST);
         }
@@ -27,7 +27,7 @@ class TaskController
 
     public function update()
     {
-        if(check([ 'id', 'text'], $_POST) && auth()) {
+        if (check(['id', 'text'], $_POST) && auth()) {
             $taskModel = new Tasks();
             $taskModel->update($_POST);
         }
@@ -37,7 +37,7 @@ class TaskController
 
     public function updateStatus()
     {
-        if(check(['id'], $_POST) && auth()) {
+        if (check(['id'], $_POST) && auth()) {
             $taskModel = new Tasks();
             $taskModel->updateStatus($_POST);
         }
